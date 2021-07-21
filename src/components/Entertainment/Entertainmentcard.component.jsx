@@ -56,7 +56,7 @@ const EntertainmentCardSlider = () => {
                     slidesToScroll: 1,
                 },
             },
-        ]
+        ],
     };
     return (
         <>
@@ -68,6 +68,6 @@ const EntertainmentCardSlider = () => {
         </>
 
     );
-}
+};
 
 export default EntertainmentCardSlider;

@@ -6,13 +6,13 @@ const NavSm = () => {
         <>
             <div className="text-white flex items-center justify-between">
                 <div>
-                    <h3 className="text-xl">It All Starts Here!</h3>
+                    <h3 className="text-xl font-bold">It All Starts Here!</h3>
                     <span className="text-gray-400 text-xs flex items-center">Mumbai<BiChevronRight /></span>
                 </div>
                 <div className="w-8 h-8"><BiSearch className="w-full h-full" /></div>
             </div>
         </>
-    )
+    );
 };
 
 const NavMd = () => {
@@ -21,7 +21,7 @@ const NavMd = () => {
             <BiSearch />
             <input type="search" className="w-full bg-transparent border-none focus:outline-none" placeholder="Search for Movies, Events, Plays, Sports and Activities" />
         </div>
-    )
+    );
 };
 
 const NavLg = () => {
@@ -38,7 +38,7 @@ const NavLg = () => {
                     </div>
                 </div>
                 <div className="flex items-center gap-3">
-                    <span className="text-gray-400 text-xs flex items-center cursor-pointer">Mumbai<BiChevronDown /></span>
+                    <span className="text-gray-200 text-xs flex items-center cursor-pointer hover:text-white">Mumbai<BiChevronDown /></span>
                     <button className="bg-red-600 text-white px-2 py-1 text-sm rounded">Sign in</button>
                     <div className="w-8 h-8 text-white">
                         <BiMenu className="w-full h-full" />
@@ -55,7 +55,7 @@ const Navbar = () => {
             <nav className="bg-bms-700 p-4">
                 <div className="md:hidden"><NavSm />{/*Mobile screen*/}</div>
                 <div className="hidden md:flex lg:hidden"><NavMd />{/*Medium/Tab screen*/}</div>
-                <div className="hidden lg:flex"><NavLg />{/*Large Screen */}</div>
+                <div className="hidden w-full lg:flex"><NavLg />{/*Large Screen */}</div>
             </nav>
         </>
     );
