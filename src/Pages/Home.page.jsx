@@ -2,7 +2,10 @@ import React from "react";
 
 //Components
 import EntertainmentCardSlider from "../components/Entertainment/Entertainmentcard.component";
-import Premiere from "../components/Premiere/Premiere.component";
+import PosterSlider from "../components/PosterSlider/PosterSlider.component";
+
+//config
+import TempPosters from "../config/TempPosters.config"
 
 const HomePage = () => {
     return (
@@ -19,9 +22,30 @@ const HomePage = () => {
                                 <img src="https://in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120/premiere-rupay-banner-web-collection-202104230555.png" alt="premiere" className="w-full h-full" />
                             </div>
                         </div>
-                        <Premiere />
+                        <PosterSlider images={TempPosters} title="Premieres" subtitle="Brand new releases every Friday!" isDark />
                     </div>
                 </div>
+            </div>
+            <div className="container mx-auto px-4 my-8">
+                <PosterSlider images={TempPosters} title="Online Streaming Events" isDark={false} />
+            </div>
+            <div className="container mx-auto px-4 my-8">
+                <PosterSlider images={TempPosters} title="Outdoor Events" isDark={false} />
+            </div>
+            <div className="container mx-auto px-4 my-8">
+                <PosterSlider images={TempPosters} title="Laughter Therapy" isDark={false} />
+            </div>
+            <div className="container mx-auto px-4 my-8">
+                <PosterSlider images={TempPosters} title="Popular Events" isDark={false} />
+            </div>
+            <div className="container mx-auto px-4 my-8">
+                <PosterSlider images={TempPosters} title="The Latest Plays" isDark={false} />
+            </div>
+            <div className="container mx-auto px-4 my-8">
+                <PosterSlider images={TempPosters} title="Top Games & Sport Events" isDark={false} />
+            </div>
+            <div className="container mx-auto px-4 my-8">
+                <PosterSlider images={TempPosters} title="Explore Fun Activities" isDark={false} />
             </div>
         </>
     );
