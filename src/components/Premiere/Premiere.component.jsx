@@ -43,57 +43,61 @@ export const Premiere = () => {
       src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00047164-sztaxpptsc-portrait.jpg",
       alt: "zack",
       title: "Zacl",
-      subtitle: "english",
+      subtitle: "English",
     },
     {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00047164-sztaxpptsc-portrait.jpg",
-      alt: "zack",
-      title: "Zacl",
-      subtitle: "english",
+      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00310648-yhdnmuexaf-portrait.jpg",
+      alt: "resistance",
+      title: "Resistance",
+      subtitle: "English",
     },
     {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00047164-sztaxpptsc-portrait.jpg",
-      alt: "zack",
-      title: "Zacl",
-      subtitle: "english",
+      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00302306-xxwtjnexzz-portrait.jpg",
+      alt: "proximity",
+      title: "Proximity",
+      subtitle: "English",
     },
     {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00047164-sztaxpptsc-portrait.jpg",
-      alt: "zack",
-      title: "Zacl",
-      subtitle: "english",
+      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00309748-pqkuenkpvy-portrait.jpg",
+      alt: "another round",
+      title: "Another Round",
+      subtitle: "Danish",
     },
     {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00047164-sztaxpptsc-portrait.jpg",
-      alt: "zack",
-      title: "Zacl",
-      subtitle: "english",
+      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00303783-tydhanqvye-portrait.jpg",
+      alt: "the tunnel",
+      title: "The Tunnel",
+      subtitle: "Norwegian",
     },
     {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00047164-sztaxpptsc-portrait.jpg",
-      alt: "zack",
-      title: "Zacl",
-      subtitle: "english",
+      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00302293-rbxsftdhdd-portrait.jpg",
+      alt: "radioactive",
+      title: "Radioactive",
+      subtitle: "English",
     },
     {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00047164-sztaxpptsc-portrait.jpg",
-      alt: "zack",
-      title: "Zacl",
-      subtitle: "english",
+      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00137455-eywmevjnes-portrait.jpg",
+      alt: "capone",
+      title: "Capone",
+      subtitle: "English",
     },
     {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00047164-sztaxpptsc-portrait.jpg",
-      alt: "zack",
-      title: "Zacl",
-      subtitle: "english",
+      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00137324-nsmjcquscr-portrait.jpg",
+      alt: "the courier",
+      title: "The Courier",
+      subtitle: "English",
     },
   ];
 
   return (
     <>
+    <div className="flex flex-col items-start">
+      <h3 className="text-white text-xl font-bold">Premieres</h3>
+      <p className="text-white text-sm">Brand new release every Friday!</p>
+    </div>
       <Slider {...settings}>
         {PremiereImages.map((image) => (
-          <Poster {...image} />
+          <Poster {...image} isDark />
         ))}
       </Slider>
     </>
