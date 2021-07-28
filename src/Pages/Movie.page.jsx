@@ -1,4 +1,8 @@
 const Movie=()=>{
-    return <>Hi</>;
+    return <>
+    <div>
+        <img src="" alt="" />
+    </div>
+    </>;
 }
 export default Movie;
