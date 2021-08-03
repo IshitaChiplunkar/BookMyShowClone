@@ -1,8 +1,10 @@
-const Movie=()=>{
-    return <>
-    <div>
-        <img src="" alt="" />
-    </div>
-    </>;
-}
+import MovieHero from "../components/MovieHero/MovieHero.component";
+
+const Movie = () => {
+    return (
+    <>
+        <MovieHero />;
+    </>
+    );
+};
 export default Movie;
