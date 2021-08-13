@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import HeroSlider from "react-slick";
+import axios from "axios";
 
 //Component
 import { NextArrow, PrevArrow } from "./Arrows.component";
 
-
-
 const HeroCarousel = () => {
+
+    const [images,setImages]=useState([]);
+
+    useEffect(()=>{
+        const requestNowPlayingMovies=async()=>{
+            const getImages=await axios.get("/movie/now_playing");
+            setImages(getImages.data.results);
+        };
+        requestNowPlayingMovies();
+
+    },[]);
+
     const settingsLG = {
         arrows: true,
         autoplay: true,
@@ -18,6 +29,7 @@ const HeroCarousel = () => {
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />
     }
+
     const settings = {
         arrows: true,
         infinite: true,
@@ -27,22 +39,14 @@ const HeroCarousel = () => {
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />
     };
-    const images = [
-        "https://in.bmscdn.com/promotions/cms/creatives/1627383196819_bosslevelweb28.jpg",
-        "https://in.bmscdn.com/promotions/cms/creatives/1627022032111_sunfeastdesktop.jpg",
-        "https://in.bmscdn.com/promotions/cms/creatives/1625720005981_upgradgrouppagebanner_webshowcase_1280x500.jpg",
-        "https://in.bmscdn.com/promotions/cms/creatives/1626372121139_bsm_1280x500_romcom_1.jpg",
-        "https://in.bmscdn.com/promotions/cms/creatives/1627021091636_vaccinationdrivemaxnanavati_webshowcase_1280x500.jpg",
-        "https://in.bmscdn.com/promotions/cms/creatives/1625135512787_bas_1280x500.jpg"
-    ];
-
+    
     return (
         <>
             <div className="lg:hidden">
                 <HeroSlider {...settings}>
                     {images.map((image) => (
                         <div className="w-full h-80 md:h-80 py-3">
-                            <img src={image} alt="testing" className="w-full h-full" />
+                            <img src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`} alt="testing" className="w-full h-full" />
                         </div>
                     ))}
                 </HeroSlider>
@@ -51,7 +55,7 @@ const HeroCarousel = () => {
                 <HeroSlider {...settingsLG}>
                     {images.map((image) => (
                         <div className="w-full h-96 px-2 py-3">
-                            <img src={image} alt="testing" className="w-full h-full rounded-md" />
+                            <img src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`} alt="testing" className="w-full h-full rounded-md" />
                         </div>
                     ))}
                 </HeroSlider>
