@@ -62,22 +62,7 @@ const HomePage = () => {
                 <PosterSlider images={topRatedMovies} title="Online Streaming Events" isDark={false} />
             </div>
             <div className="container mx-auto px-4 my-8">
-                <PosterSlider images={topRatedMovies} title="Outdoor Events" isDark={false} />
-            </div>
-            <div className="container mx-auto px-4 my-8">
                 <PosterSlider images={upcomingMovies} title="Laughter Therapy" isDark={false} />
-            </div>
-            <div className="container mx-auto px-4 my-8">
-                <PosterSlider images={TempPosters} title="Popular Events" isDark={false} />
-            </div>
-            <div className="container mx-auto px-4 my-8">
-                <PosterSlider images={TempPosters} title="The Latest Plays" isDark={false} />
-            </div>
-            <div className="container mx-auto px-4 my-8">
-                <PosterSlider images={TempPosters} title="Top Games & Sport Events" isDark={false} />
-            </div>
-            <div className="container mx-auto px-4 my-8">
-                <PosterSlider images={TempPosters} title="Explore Fun Activities" isDark={false} />
             </div>
         </>
     );
