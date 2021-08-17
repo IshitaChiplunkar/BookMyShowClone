@@ -1,5 +1,8 @@
 import { FaCcVisa, FaCcApplePay } from "react-icons/fa"
-
+import React, { useContext, useState, useEffect } from "react";
+import axios from "axios";
+import { useParams } from "react-router";
+import Slider from "react-slick";
 
 //Component
 import MovieHero from "../components/MovieHero/MovieHero.component";
@@ -9,7 +12,22 @@ import PosterSlider from "../components/PosterSlider/PosterSlider.component";
 //config
 import TempPosters from "../config/TempPosters.config"
 
+// context
+import { MovieContext } from "../context/movie.context";
+
 const Movie = () => {
+    const { id } = useParams();
+    const { movie } = useContext(MovieContext);
+    const [cast, setCast] = useState([]);
+
+    useEffect(() => {
+        const requestCast = async () => {
+            const getCast = await axios.get(`/movie/${id}/credits`);
+            setCast(getCast.data.cast);
+        };
+        requestCast();
+    }, [id]);
+
     const settings = {
         infinite: false,
         speed: 500,
@@ -43,13 +61,46 @@ const Movie = () => {
         ],
     };
 
+    const settingsCast = {
+        infinite: false,
+        speed: 500,
+        slidesToShow: 6,
+        slidesToScroll: 4,
+        initialSlide: 0,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 3,
+                    infinite: true,
+                },
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 5,
+                    slidesToScroll: 2,
+                    initialSlide: 2,
+                },
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
+    };
+
     return (
         <>
             <MovieHero />;
             <div className="my-12 container px-4 lg:ml-20 lg:w-2/3">
                 <div className="flex flex-col items-start gap-3">
                     <h2 className="text-gray-800 font-bold text-2xl">About the movie</h2>
-                    <p>Kong is on a journey to find his true home but gets in the way of an enraged Godzilla. The epic clash is only the beginning of the mystery that lies within the core of the Earth.</p>
+                    <p>{movie.overview}</p>
                 </div>
                 <div className="my-8">
                     <hr />
@@ -78,24 +129,14 @@ const Movie = () => {
                 </div>
                 <div className="my-8">
                     <h2 className="text-gray-800 font-bold text-2xl mb-4">Cast & Crew</h2>
-                    <div className="flex flex-wrap gap-4">
-                        <Cast
-                            image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/alexander-skarsgard-1057902-24-03-2017-13-51-10.jpg"
-                            castName="Alexander Skargard"
-                            role="Nathan Lind" />
-                        <Cast
-                            image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/millie-bobby-brown-1079885-24-05-2019-05-20-16.jpg"
-                            castName="Millie Bobby Brwon"
-                            role="Madison Russell" />
-                        <Cast
-                            image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/rebecca-hall-7076-11-09-2017-05-49-56.jpg"
-                            castName="Rebecca Hall"
-                            role="Ilene Andrews" />
-                        <Cast
-                            image="https://in.bmscdn.com/iedb/artist/images/website/poster/large/brian-tyree-henry-1096515-26-10-2018-14-45-47.jpg"
-                            castName="Brian Tyree Henry"
-                            role="Bernie Hayes" />
-                    </div>
+                    <Slider {...settingsCast}>
+                        {cast.map((castdata) => (
+                            <Cast
+                                image={`https://image.tmdb.org/t/p/original${castdata.profile_path}`}
+                                castName={castdata.original_name}
+                                role={castdata.character} />
+                        ))}
+                    </Slider>
                 </div>
                 <div className="my-8">
                     <hr />
