@@ -1,5 +1,5 @@
 import React,{useContext} from "react";
-import { BiChevronRight, BiSearch, BiMenu, BiChevronDown,BiShareAlt } from "react-icons/bi";
+import { BiSearch, BiMenu, BiChevronDown,BiShareAlt } from "react-icons/bi";
 import { MovieContext } from "../../context/movie.context";
 
 const NavSm = () => {
